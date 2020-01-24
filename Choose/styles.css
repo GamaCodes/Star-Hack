@@ -38,6 +38,14 @@ body {
 }
 
 .ChooseImg>img {
+  filter: grayscale(100%) blur(5px);
+}
+
+.ChooseImg>img:hover {
+  filter: none;
+}
+
+.ChooseImg>img {
   width: 19%;
 }
 
