@@ -1,0 +1,48 @@
+body {
+  margin: 0;
+}
+
+.back {
+  background-image: url(imagen/fondo.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  margin: 0;
+
+}
+
+
+.theGame {
+  text-align: center;
+
+}
+
+.theGame>img {
+  width: 40%;
+  margin-top: 5%;
+}
+
+.boton {
+  display: flex;
+  position: absolute;
+  top: 448px;
+  flex-flow: row wrap;
+  z-index: 3;
+  width: 100vw;
+  align-items: center;
+  margin-left: 14%;
+  margin-top: 3%;
+}
+
+.boton>a {
+  box-sizing: content-box;
+  width: 30%;
+}
+
+.boton>a>img {
+
+  width: 50%;
+  height: 50%;
+}

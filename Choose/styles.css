@@ -1,0 +1,65 @@
+.bk {
+  background-image: url(imagen/fondo.jpg);
+  background-size: cover;
+  background-position: ;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.Choose {
+  position: absolute;
+  z-index: 1;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.Choose>img {
+  width: 90%;
+
+}
+
+.ChooseImg {
+  display: flex;
+  position: absolute;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  width: 100vw;
+  margin-top: 10%;
+  z-index: 2;
+}
+
+.ChooseImg>img {
+  width: 19%;
+}
+
+.Button {
+  display: flex;
+  position: absolute;
+  top: 448px;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  z-index: 3;
+  width: 100vw;
+}
+
+
+a {
+  height: auto;
+  width: auto;
+}
+
+.Button>a>img {
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+
+}
