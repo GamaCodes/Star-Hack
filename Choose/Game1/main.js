@@ -20,13 +20,24 @@ const allies = [];
 const shootsPlayer = [];
 const shootsBoot = [];
 let frames = 0;
+
+let audioInicio = new Audio()
+audioInicio.src = './Audio/star_wars_episodio_vii_el_despertar_de_la_fuerza.mp3'
+let soyPadre = new Audio()
+soyPadre.src = './Audio/yo_soy_tu_padre_star_wars.mp3'
+
+
 //Clases
 class Board {
   constructor(img) {
+    // this.audio = new Audio();
+    // this.audio.src = "./Audio/star_wars_episodio_vii_el_despertar_de_la_fuerza.mp3"
+    // this.audio.loop = true
     this.img = new Image();
     this.img.src = img;
     this.img.onload = () => {
       ctx.drawImage(this.img, 0, 0, canvas.width, canvas.height);
+
     };
   }
   draw() {
@@ -201,6 +212,7 @@ function update() {
   drawLife();
   checkCollition2();
   checkCollition();
+  audioInicio.play();
 }
 //Inicio de juego
 function start() {
@@ -220,6 +232,7 @@ function win() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   const winBackgrund = new Board(won);
   winBackgrund.draw();
+  soyPadre.play()
 }
 // Crear allies
 // function generateAllies() {
