@@ -44,7 +44,7 @@ class Shooter2 {
     this.x = x;
     this.y = y;
     this.width = -70;
-    this.height = -15;
+    this.height = -40;
     this.img = new Image();
     this.img.src = shooting2;
   }
@@ -58,7 +58,7 @@ class Shooter {
     this.x = x;
     this.y = y;
     this.width = 70;
-    this.height = 15;
+    this.height = 40;
     this.img = new Image();
     this.img.src = shooting1;
   }
@@ -69,19 +69,45 @@ class Shooter {
 }
 class Player {
   constructor() {
-    this.width = 60;
-    this.height = 76;
+    this.width = 200;
+    this.height = 200;
     this.hp = 250;
     this.x = 10;
     this.y = canvas.height - this.height - 40;
+    this.sx = 0;
+    this.sy = 0;
     this.img = new Image();
     this.img.src = player1;
     this.img.onload = () => {
-      ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+      ctx.drawImage(
+        this.img,
+        this.sx,
+        this.sy,
+        614 / 2,
+        495,
+        this.x,
+        this.y,
+        this.width,
+        this.height
+      );
     };
   }
   draw() {
-    ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+    if (frames % 10 === 0) {
+      this.sx += 307;
+    }
+    if (this.sx >= 614) this.sx = 0;
+    ctx.drawImage(
+      this.img,
+      this.sx,
+      this.sy,
+      614 / 2,
+      495,
+      this.x,
+      this.y,
+      this.width,
+      this.height
+    );
   }
   damage() {
     this.hp = this.hp - 10;
@@ -98,6 +124,11 @@ class Player {
   moveRight() {
     this.x += 10;
   }
+  // move() {
+    
+  //     this.sx += 307;
+    
+  // }
   touchPlayer(shooter) {
     return (
       this.x + this.width > shooter.x &&
@@ -106,25 +137,51 @@ class Player {
     );
   }
   shoot() {
-    const w = new Shooter(this.x + this.width, this.y + this.height / 2 - 12);
+    const w = new Shooter(this.x + this.width, this.y + this.height / 20000);
     shootsPlayer.push(w);
   }
 }
 class Boot {
   constructor() {
-    this.width = 80;
-    this.height = 110;
+    this.width = 200;
+    this.height = 200;
     this.hp = 250;
-    this.x = canvas.width - this.width * 2;
+    this.x = canvas.width - this.width ;
     this.y = canvas.height - (this.height + 40);
+    this.sx = 0;
+    this.sy = 0;
     this.img = new Image();
     this.img.src = boot1;
     this.img.onload = () => {
-      ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+      ctx.drawImage(
+        this.img,
+        this.sx,
+        this.sy,
+        614 / 2,
+        495,
+        this.x,
+        this.y,
+        this.width,
+        this.height
+      );
     };
   }
   draw() {
-    ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+    if (frames % 10 === 0) {
+      this.sx += 307;
+    }
+    if (this.sx >= 614) this.sx = 0;
+    ctx.drawImage(
+      this.img,
+      this.sx,
+      this.sy,
+      614 / 2,
+      495,
+      this.x,
+      this.y,
+      this.width,
+      this.height
+    );
   }
   damage() {
     this.hp -= 10;
@@ -141,6 +198,9 @@ class Boot {
   moveRight() {
     this.x += 10;
   }
+  // move() {
+  //   this.sx += 307;
+  // }
   shoot() {
     const w2 = new Shooter2(this.x + this.width, this.y + this.height / 1.5);
     shootsBoot.push(w2);
@@ -283,7 +343,7 @@ function checkCollition2() {
   }
 }
 function drawLife() {
-  ctx.fillStyle = "white";
+  ctx.fillStyle = "black";
   ctx.fillRect(25, 25, 350, 40);
   ctx.fillRect(canvas.width - 375, 25, 350, 40);
   // ctx.drawImage()
